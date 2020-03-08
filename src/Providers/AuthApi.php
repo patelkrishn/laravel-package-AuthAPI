@@ -37,6 +37,15 @@ class AuthApi extends AuthApiProvider
         }
     }
 
+    public function me()
+    {
+        if ($this->check() == 'Authenticated') {
+            return $this->response;
+        }else {
+            return $this->check();
+        }
+    }
+
     public function email()
     {
         if ($this->check() == 'Authenticated') {
